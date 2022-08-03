@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MasterPelangganController extends Controller
+class ProviderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class MasterPelangganController extends Controller
      */
     public function index()
     {
-        return view('admin.masterpelanggan', ['sidebar' => 'masterpelanggan']);
+        return view('admin.provider', ['sidebar' => 'provider']);
     }
 
     /**

@@ -7,8 +7,8 @@
 
         <div class="panel">
             <div class="title">
-                <p>Data Tipe</p>
-                <a class="btn-utama-soft sml rnd " data-bs-toggle="modal" data-bs-target="#modaltambahtipe">Tipe Baru <i
+                <p>Data Provider</p>
+                <a class="btn-utama-soft sml rnd " data-bs-toggle="modal" data-bs-target="#modaltambahprovider">Tambah Provider <i
                         class="material-icons menu-icon ms-2">add_circle</i></a>
             </div>
 
@@ -17,19 +17,18 @@
                     <table id="table_id" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Nama Tipe</th>
-                                <th>Foto</th>
+                                <th>Nama Provider</th>
+                                <th>Kode</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody class="select">
+                        <tbody>
                             <tr>
-                                <td>Bed</td>
-                                <td><img class="" src="{{ asset('images/local/klinik.png') }}" /></td>
+                                <td>XL</td>
+                                <td>088</td>
                                 <td class="d-flex">
                                     <a class="btn-success sml rnd me-1">Edit <i
                                             class="material-icons menu-icon ms-2">edit</i></a>
-
                                     <a class="btn-danger sml rnd ">Hapus <i
                                             class="material-icons menu-icon ms-2">delete</i></a>
                                 </td>
@@ -45,29 +44,25 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="modaltambahtipe" tabindex="-1" aria-labelledby="modaltambahtipe" aria-hidden="true">
+        <div class="modal fade" id="modaltambahprovider" tabindex="-1" aria-labelledby="modaltambahprovider" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="titlemodaltambahtipe">Tambah Master Tipe</h5>
+                        <h5 class="modal-title" id="modaltambahprovider">Tambah Provider</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
 
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="namatipe" name="namatipe"
-                                placeholder="namatipe">
-                            <label for="namatipe" class="form-label">Nama Tipe</label>
+                            <input type="text" class="form-control" id="nama" name="nama" >
+                            <label for="nama" class="form-label">Nama Provider</label>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="fototipe" class="form-label">Foto Tipe</label>
-                            <input class="form-control" type="file" id="fototipe">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="kode" name="kode">
+                            <label for="alamat" class="form-label">Kode</label>
                         </div>
-
-
-
 
                     </div>
 

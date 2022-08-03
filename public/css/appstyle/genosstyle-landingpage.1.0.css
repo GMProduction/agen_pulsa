@@ -371,8 +371,7 @@ p.invert {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  /* number of lines to show */
+  -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -382,8 +381,7 @@ p.invert {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
-  /* number of lines to show */
+  -webkit-line-clamp: 4; /* number of lines to show */
   line-clamp: 4;
   -webkit-box-orient: vertical;
 }
@@ -560,4 +558,4 @@ input.form-control {
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+}/*# sourceMappingURL=genosstyle-landingpage.1.0.css.map */

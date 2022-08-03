@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class KotaController extends Controller
+class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class KotaController extends Controller
      */
     public function index()
     {
-        return view('admin.kota', ['sidebar' => 'kota']);
+        return view('admin.produk', ['sidebar' => 'produk']);
     }
 
     /**

@@ -59,17 +59,17 @@
 
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Jhony">
+                            <input type="text" class="form-control" id="nama" name="nama" >
                             <label for="nama" class="form-label">Nama</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Jhony">
+                            <input type="text" class="form-control" id="alamat" name="alamat" >
                             <label for="alamat" class="form-label">Alamat</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Jhony">
+                            <input type="text" class="form-control" id="no_hp" name="no_hp" >
                             <label for="no_hp" class="form-label">No Hp</label>
                         </div>
 
@@ -77,16 +77,16 @@
 
                         <hr>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Jhony">
+                            <input type="text" class="form-control" id="username" name="username" >
                             <label for="username" class="form-label">Username</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control " id="password" name="password" placeholder="Jhony">
+                            <input type="password" class="form-control " id="password" name="password" >
                             <label for="password" class="form-label">Password</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password" class="form-control " id="password_confirmation"
-                                name="password_confirmation" placeholder="Jhony">
+                                name="password_confirmation" >
                             <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                         </div>
 
@@ -113,7 +113,6 @@
         <script>
             $(document).ready(function() {
                 $('#table_id').DataTable();
-                $('#table_piutang').DataTable();
             });
         </script>
     @endsection

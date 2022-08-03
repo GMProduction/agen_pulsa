@@ -27,8 +27,6 @@
         <div class="login">
             <div class="panel-login pinggiran-bunder-10 bayangan-accent ">
                 <p class="text-center mt-3 h2 fw-bold">Login</p>
-                <p class="text-center huruf-abu-5">Jika belum mempunyai akun bisa daftar <a class="link"
-                        href="/daftar">disini</a></p>
 
                 <form class="p-3">
                     <div class="mb-3">
@@ -41,13 +39,6 @@
                     </div>
 
                     <a class="btn-utama ms-auto   mt-4 d-block mb-3">LOGIN</a>
-                    <div class="d-flex w-100 mt-3 ">
-                        <hr class="garis-horizontal huruf-abu-3">
-                        <p class="mb-0 me-2 ms-2 huruf-abu-5">atau</p>
-                        <hr class="garis-horizontal huruf-abu-3">
-                    </div>
-                    <a class="btn-google ms-auto   mt-2 d-block mb-3"><img
-                            src="{{ asset('images/local/logo-google.png') }} ">Login dengan google</a>
                 </form>
             </div>
         </div>

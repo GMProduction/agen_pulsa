@@ -65,6 +65,19 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'imageProduk' => [
+            'driver'     => 'local',
+            'root'       => public_path().'/images/produk',
+            'url'        => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        'imageBukti' => [
+            'driver'     => 'local',
+            'root'       => public_path().'/images/bukti',
+            'url'        => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

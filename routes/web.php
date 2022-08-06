@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'index']);
 Route::get('/admin', [UserController::class, 'index']);
-Route::get('/admin/user', [UserController::class, 'index']);
+Route::match(['POST','GET'],'/admin/user', [UserController::class, 'index']);
 Route::get('/admin/provider', [ProviderController::class, 'index']);
-Route::get('/admin/produk', [ProdukController::class, 'index']);
+Route::match(['POST','GET'],'/admin/produk', [ProdukController::class, 'index']);
 Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
 Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
 Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);

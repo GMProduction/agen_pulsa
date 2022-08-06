@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('datatable/datatables.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('vitalets-bootstrap-datepicker/css/datepicker.css') }}" />
+    <script src="{{ asset('js/swal.js') }}"></script>
 
 </head>
 
@@ -66,7 +67,7 @@
                     <a class="title-role" href="#"> Admin </a>
                 </li>
 
-       
+
 
                 <li class="nav-item">
                     <a class="nav-link menu @if ($sidebar == 'user') active @endif" href="/admin/user">
@@ -114,6 +115,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <script src="{{ asset('js/base.js') }}"></script>
+    <script src="{{ asset('js/dialog.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('datatable/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('datatable/select.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vitalets-bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>

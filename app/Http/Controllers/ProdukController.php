@@ -2,28 +2,61 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\CustomController;
+use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
-class ProdukController extends Controller
+class ProdukController extends CustomController
 {
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|string
      */
     public function index()
     {
-        return view('admin.produk', ['sidebar' => 'produk']);
+        if (\request()->isMethod('POST')){
+            return $this->create();
+        }
+
+        $produk = Produk::all();
+        return view('admin.produk', ['sidebar' => 'produk', 'data' => $produk]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function create()
     {
         //
+        $field = \request()->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required',
+        ]);
+
+        if (\request('gambar')){
+            $image     = $this->generateImageName('gambar');
+            $stringImg = '/images/produk/'.$image;
+            $this->uploadImage('gambar', $image, 'imageProduk');
+            Arr::set($field, 'gambar', $stringImg);
+        }
+
+        if (\request('id')){
+            $produk = Produk::find(\request('id'));
+            if (\request('gambar')){
+                if ($produk && $produk->gambar){
+                    if (file_exists('../public'.$produk->gambar)) {
+                        unlink('../public'.$produk->gambar);
+                    }
+                }
+            }
+            $produk->update($field);
+        }else{
+            $produk = new Produk();
+            $produk->create($field);
+        }
+
+        return 'success';
     }
 
     /**

@@ -77,13 +77,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu @if ($sidebar == 'provider') active @endif" href="/admin/provider">
-                        <i class="material-icons menu-icon">type_specimen</i>
-                        <p class="menu-text">Provider</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a class="nav-link menu @if ($sidebar == 'produk') active @endif" href="/admin/produk">
                         <i class="material-icons menu-icon">inventory_2</i>
                         <p class="menu-text">Produk</p>

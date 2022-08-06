@@ -18,7 +18,7 @@ class LoginController extends Controller
         );
         $user = User::where('username', '=', $field['username'])->first();
 
-        if ( ! $user || ! Hash::check($field['password'], $user->password) || $user->role != 'klinik') {
+        if ( ! $user || ! Hash::check($field['password'], $user->password) || $user->role != 'agen') {
             return response()->json(
                 [
                     'msg' => 'Login gagal',
@@ -27,7 +27,7 @@ class LoginController extends Controller
             );
         } else {
             $user->tokens()->delete();
-            $token = $user->createToken('pelanggan')->plainTextToken;
+            $token = $user->createToken('agen')->plainTextToken;
             $user->update(
                 [
                     'token' => $token,

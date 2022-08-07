@@ -45,7 +45,7 @@
                                             <a class="btn-success sml rnd me-1" onclick="updateStatus('{{$d->id}}',1)">Terima <i
                                                     class="material-icons menu-icon ms-2">check</i></a>
                                             <a class="btn-danger sml rnd " onclick="updateStatus('{{$d->id}}',2)">Tolak <i
-                                                    class="material-icons menu-icon ms-2">cross</i></a>
+                                                    class="material-icons menu-icon ms-2">close</i></a>
                                         </div>
                                     @endif
                                 </td>

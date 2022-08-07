@@ -18,7 +18,7 @@ class TransaksiController extends CustomController
         if (\request()->isMethod('POST')){
             return $this->create();
         }
-        $trans = Transaksi::with('produk')->where([['status','=',0],['user_id','=',auth()->id()]])->get();
+        $trans = Transaksi::with('produk')->where('user_id','=',auth()->id())->get();
         return $trans;
     }
 

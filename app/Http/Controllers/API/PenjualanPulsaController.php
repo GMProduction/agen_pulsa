@@ -32,9 +32,9 @@ class PenjualanPulsaController extends Controller
 
         Arr::set($field,'user_id', auth()->id());
         $penjualan = new PenjualanPulsa();
-        $penjualan->update($field);
-        $agen = Agen::where('user_id',auth()->id())->first();
+        $penjualan->create($field);
 
+        $agen = Agen::where('user_id',auth()->id())->first();
         $sisaSaldo = (int)$agen->saldo;
         $jumlah = $sisaSaldo - (int)$field['nominal'];
         $agen->update([

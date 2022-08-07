@@ -92,7 +92,6 @@ async function saveData(title, form, url, resposeSuccess, image = null) {
 }
 
 function saveDataObjectFormData(title, form_data, url, resposeSuccess) {
-    console.log('asdasd', form_data)
     swal({
         title: title,
         text: "Apa kamu yakin ?",

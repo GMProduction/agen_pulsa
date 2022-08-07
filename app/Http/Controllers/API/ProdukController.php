@@ -10,7 +10,8 @@ class ProdukController extends Controller
 {
     //
     public function index(){
-        return Produk::all();
+        $q = \request('q');
+        return Produk::filter($q)->get();
     }
 
     public function detail($id){

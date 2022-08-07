@@ -18,7 +18,7 @@ class LoginController extends Controller
         );
         $user = User::where('username', '=', $field['username'])->first();
 
-        if ( ! $user || ! Hash::check($field['password'], $user->password) || $user->role != 'agen') {
+        if ( ! $user || ! Hash::check($field['password'], $user->password) || $user->role != 'user') {
             return response()->json(
                 [
                     'msg' => 'Login gagal',

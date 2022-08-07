@@ -20,13 +20,17 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [UserController::class, 'index']);
-Route::get('/admin', [UserController::class, 'index']);
-Route::match(['POST','GET'],'/admin/user', [UserController::class, 'index']);
-Route::get('/admin/provider', [ProviderController::class, 'index']);
-Route::match(['POST','GET'],'/admin/produk', [ProdukController::class, 'index']);
-Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
-Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
-Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::middleware('auth')->group(function (){
+    Route::match(['POST','GET'],'/admin', [\App\Http\Controllers\AdminController::class, 'index']);
+    Route::match(['POST','GET'],'/', [UserController::class, 'index']);
+    Route::get('/admin/provider', [ProviderController::class, 'index']);
+    Route::match(['POST','GET'],'/admin/produk', [ProdukController::class, 'index']);
+    Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
+    Route::post('/admin/transaksi/status', [TransaksiController::class, 'updateStatus']);
+    Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
+    Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);
+
+});
+
+Route::match(['POST','GET'],'/login', [LoginController::class, 'index'])->name('login');

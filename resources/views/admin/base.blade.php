@@ -68,11 +68,17 @@
                 </li>
 
 
-
                 <li class="nav-item">
-                    <a class="nav-link menu @if ($sidebar == 'user') active @endif" href="/admin/user">
+                    <a class="nav-link menu @if ($sidebar == 'user') active @endif" href="/">
                         <i class="material-icons menu-icon">person</i>
                         <p class="menu-text">User</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu @if ($sidebar == 'admin') active @endif" href="/admin">
+                        <i class="material-icons menu-icon">person</i>
+                        <p class="menu-text">Admin</p>
                     </a>
                 </li>
 

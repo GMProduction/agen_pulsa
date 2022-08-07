@@ -32,6 +32,7 @@ class ProdukController extends CustomController
         $field = \request()->validate([
             'nama_produk' => 'required',
             'harga' => 'required',
+            'nilai' => 'required'
         ]);
 
         if (\request('gambar')){

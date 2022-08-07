@@ -14,11 +14,12 @@
 
             <div class="isi">
                 <div class="table">
-                    <table id="table_produk" class="table table-striped" style="width:100%">
+                    <table id="table_id" class="table table-striped" style="width:100%">
                         <thead>
                         <tr>
                             <th>Nama Produk</th>
                             <th>Harga</th>
+                            <th>Nominal Saldo</th>
                             <th>Gambar</th>
                             <th>Action</th>
                         </tr>
@@ -27,7 +28,8 @@
                         @forelse($data as $d)
                             <tr>
                                 <td>{{$d->nama_produk}}</td>
-                                <td>{{$d->harga}}</td>
+                                <td>{{number_format($d->harga)}}</td>
+                                <td>{{number_format($d->nilai)}}</td>
                                 <td><img class="" src="{{ asset($d->gambar) }}"/></td>
                                 <td>
                                     <div class="d-flex">
@@ -77,6 +79,11 @@
                             <input type="text" class="form-control textForm" id="nama_produk" name="nama_produk"
                                    placeholder="namaproduk">
                             <label for="namaproduk" class="form-label">Nama Produk</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control textForm" id="nilai" name="nilai"
+                                   placeholder="Nominal Saldo">
+                            <label for="harga" class="form-label">Nominal Saldo</label>
                         </div>
 
                         <div class="form-floating mb-3">

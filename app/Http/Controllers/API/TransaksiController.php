@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Helper\CustomController;
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
-class TransaksiController extends Controller
+class TransaksiController extends CustomController
 {
 
     /**
@@ -43,7 +44,7 @@ class TransaksiController extends Controller
 
     public function updateBukti($id){
         \request()->validate([
-           'bukti' => 'request'
+           'bukti' => 'required'
         ]);
         $trans = Transaksi::find($id);
         $image     = $this->generateImageName('bukti');

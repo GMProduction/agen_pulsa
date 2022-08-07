@@ -32,6 +32,7 @@ class UserController extends Controller
         $field = \request()->validate(
             [
                 'nama'   => 'required',
+                'username' => 'required',
             ]
         );
 
@@ -43,7 +44,6 @@ class UserController extends Controller
         );
 
         $fieldPass = \request()->validate([
-            'username' => 'required',
             'password' => 'required|confirmed',
         ]);
         if (\request('id')) {
@@ -69,7 +69,7 @@ class UserController extends Controller
                 ]
             );
             $user     = new User();
-            $password = Hash::make($field['password']);
+            $password = Hash::make($fieldPass['password']);
             Arr::set($field, 'password', $password);
             Arr::set($field, 'role', 'user');
             $user = $user->create($field);

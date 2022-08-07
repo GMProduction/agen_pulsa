@@ -13,7 +13,7 @@ class PenjualanPulsaController extends Controller
     public function index()
     {
         if (\request()->isMethod('POST')) {
-
+            return $this->create();
         }
         $penjualan = PenjualanPulsa::where('user_id', auth()->id)->get();
 

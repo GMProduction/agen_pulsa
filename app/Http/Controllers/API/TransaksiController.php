@@ -59,5 +59,7 @@ class TransaksiController extends CustomController
         $trans->update([
             'bukti_pembayaran' => $stringImg
         ]);
+
+        return 'berhasil';
     }
 }

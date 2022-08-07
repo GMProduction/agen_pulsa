@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('bukti/{id}',[\App\Http\Controllers\API\TransaksiController::class,'updateBukti']);
     });
     Route::get('profile',[\App\Http\Controllers\API\ProfileController::class,'index']);
+    Route::match(['POST','GET'],'penjualan', [\App\Http\Controllers\API\PenjualanPulsaController::class,'index']);
 });
 
 Route::post('login',[\App\Http\Controllers\API\LoginController::class,'login']);

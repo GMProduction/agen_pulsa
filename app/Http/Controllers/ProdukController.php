@@ -60,6 +60,20 @@ class ProdukController extends CustomController
         return 'success';
     }
 
+    public function setStatus(){
+        $product = Produk::find(\request('id'));
+        $status = \request('isActive');
+        $isActive = 1;
+        if ($status == 1){
+            $isActive = 0;
+        }
+        $product->update([
+            'is_active' => $isActive
+        ]);
+
+        return 'success';
+    }
+
     /**
      * Store a newly created resource in storage.
      *

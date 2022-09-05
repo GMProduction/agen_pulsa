@@ -23,9 +23,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function (){
     Route::match(['POST','GET'],'/admin', [\App\Http\Controllers\AdminController::class, 'index']);
+    Route::post('/admin/delete', [\App\Http\Controllers\AdminController::class, 'destroy']);
     Route::match(['POST','GET'],'/', [UserController::class, 'index']);
+    Route::post('/user/delete', [UserController::class,'destroy']);
     Route::get('/admin/provider', [ProviderController::class, 'index']);
     Route::match(['POST','GET'],'/admin/produk', [ProdukController::class, 'index']);
+    Route::post('/admin/produk/active', [ProdukController::class, 'setStatus']);
     Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
     Route::post('/admin/transaksi/status', [TransaksiController::class, 'updateStatus']);
     Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);

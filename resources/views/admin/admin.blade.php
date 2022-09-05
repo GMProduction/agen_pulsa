@@ -125,6 +125,15 @@
             return false;
         }
 
+        $(document).on('click','#deleteData', function () {
+            let data = {
+                '_token': '{{csrf_token()}}',
+                'id':$(this).data('id')
+            }
+            deleteData('Hapus Data Admin '+$(this).data('nama')+' ?','/admin/delete', data)
+            return false;
+        })
+
         function afterSave() {
 
         }

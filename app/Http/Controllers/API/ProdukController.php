@@ -11,7 +11,7 @@ class ProdukController extends Controller
     //
     public function index(){
         $q = \request('q');
-        return Produk::filter($q)->get();
+        return Produk::filter($q)->where('is_active',1)->get();
     }
 
     public function detail($id){

@@ -143,6 +143,20 @@
         function afterSave() {
 
         }
+
+        function deleteUser(a) {
+
+
+        }
+
+        $(document).on('click','#deleteData', function () {
+            let data = {
+                '_token': '{{csrf_token()}}',
+                'id':$(this).data('id')
+            }
+            deleteData('Hapus Data User '+$(this).data('nama')+' ?','/user/delete', data)
+            return false;
+        })
     </script>
 @endsection
 

@@ -36,7 +36,7 @@
 
                                 <td>
                                     <div class="d-flex">
-                                        <a class="btn-success sml rnd me-1" id="editData" data-id="{{$d->id}}" data-gambar="{{$d->gambar}}" data-harga="{{$d->harga}}" data-nama="{{$d->nama_produk}}">Edit
+                                        <a class="btn-success sml rnd me-1" id="editData" data-id="{{$d->id}}" data-saldo="{{$d->nilai}}" data-gambar="{{$d->gambar}}" data-harga="{{$d->harga}}" data-nama="{{$d->nama_produk}}">Edit
                                             <i
                                                 class="material-icons menu-icon ms-2">edit</i></a>
                                         <a class="btn-accent sml rnd " id="active" data-id="{{$d->id}}" data-nama="{{$d->nama_produk}}"  data-status="{{$d->is_active}}">{{$d->is_active == 1 ? 'Non Aktikan' : 'Aktifkan'}} <i
@@ -86,7 +86,7 @@
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control textForm" id="nilai" name="nilai"
                                    placeholder="Nominal Saldo">
-                            <label for="harga" class="form-label">Nominal Saldo</label>
+                            <label for="nilai" class="form-label">Nominal Saldo</label>
                         </div>
 
                         <div class="form-floating mb-3">
@@ -128,6 +128,7 @@
             $('#modaltambahproduk #id').val($(this).data('id'));
             $('#modaltambahproduk #nama_produk').val($(this).data('nama'));
             $('#modaltambahproduk #harga').val($(this).data('harga'));
+            $('#modaltambahproduk #nilai').val($(this).data('saldo'));
             $('#modaltambahproduk').modal('show');
         })
 

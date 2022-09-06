@@ -14,6 +14,7 @@ class Produk extends Model
         'harga',
         'gambar',
         'nilai',
+        'is_active'
     ];
 
     public function scopeFilter($query, $filter)

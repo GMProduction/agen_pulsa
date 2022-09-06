@@ -21,6 +21,7 @@
                             <th>Harga</th>
                             <th>Nominal Saldo</th>
                             <th>Gambar</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -31,13 +32,15 @@
                                 <td>{{number_format($d->harga)}}</td>
                                 <td>{{number_format($d->nilai)}}</td>
                                 <td><img class="" src="{{ asset($d->gambar) }}"/></td>
+                                <td>{{$d->is_active == 1 ? 'Aktif' : 'Tidak Aktif'}}</td>
+
                                 <td>
                                     <div class="d-flex">
-                                        <a class="btn-success sml rnd me-1" id="editData" data-id="{{$d->id}}" data-gambar="{{$d->gambar}}" data-harga="{{$d->harga}}" data-nama="{{$d->nama_produk}}">Edit
+                                        <a class="btn-success sml rnd me-1" id="editData" data-id="{{$d->id}}" data-saldo="{{$d->nilai}}" data-gambar="{{$d->gambar}}" data-harga="{{$d->harga}}" data-nama="{{$d->nama_produk}}">Edit
                                             <i
                                                 class="material-icons menu-icon ms-2">edit</i></a>
-                                        {{-- <a class="btn-accent sml rnd ">Tambah Stock <i
-                                                class="material-icons menu-icon ms-2">note_add</i></a> --}}
+                                        <a class="btn-accent sml rnd " id="active" data-id="{{$d->id}}" data-nama="{{$d->nama_produk}}"  data-status="{{$d->is_active}}">{{$d->is_active == 1 ? 'Non Aktikan' : 'Aktifkan'}} <i
+                                                class="material-icons menu-icon ms-2">note_add</i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -83,7 +86,7 @@
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control textForm" id="nilai" name="nilai"
                                    placeholder="Nominal Saldo">
-                            <label for="harga" class="form-label">Nominal Saldo</label>
+                            <label for="nilai" class="form-label">Nominal Saldo</label>
                         </div>
 
                         <div class="form-floating mb-3">
@@ -125,6 +128,7 @@
             $('#modaltambahproduk #id').val($(this).data('id'));
             $('#modaltambahproduk #nama_produk').val($(this).data('nama'));
             $('#modaltambahproduk #harga').val($(this).data('harga'));
+            $('#modaltambahproduk #nilai').val($(this).data('saldo'));
             $('#modaltambahproduk').modal('show');
         })
 
@@ -132,6 +136,20 @@
             saveData('Simpan Data', 'form', window.location.pathname);
             return false;
         }
+
+        $(document).on('click', '#active', function () {
+            let status = $(this).data('status')
+            let textStatus = 'Aktifkan';
+            if(status == '1'){
+                textStatus = 'Non Aktifkan';
+            }
+            let data = {
+                '_token': '{{csrf_token()}}',
+                'id': $(this).data('id'),
+                'isActive': status
+            }
+            saveDataObjectFormData(textStatus+' Data '+$(this).data('nama'),data, '/admin/produk/active');
+        })
 
         function afterSave() {
 

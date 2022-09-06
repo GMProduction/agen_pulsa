@@ -2,37 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\CustomController;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 
-class AdminController extends Controller
+class AdminController extends CustomController
 {
 
-    public function index(){
-        if (request()->isMethod('POST')){
+    public function index()
+    {
+        if (request()->isMethod('POST')) {
             return $this->create();
         }
-        $admin = User::where('role','=','admin')->get();
+        $admin = User::where('role', '=', 'admin')->get();
+
         return view('admin.admin', ['sidebar' => 'admin', 'data' => $admin]);
 
     }
-
 
     public function create()
     {
         //
         $field = \request()->validate(
             [
-                'nama'   => 'required',
+                'nama'     => 'required',
                 'username' => 'required',
             ]
         );
 
-
-        $fieldPass = \request()->validate([
-            'password' => 'required|confirmed',
-        ]);
+        $fieldPass = \request()->validate(
+            [
+                'password' => 'required|confirmed',
+            ]
+        );
         if (\request('id')) {
             $cekUsername = User::where([['username', '=', \request('username')], ['id', '!=', \request('id')]])->first();
             if ($cekUsername) {
@@ -62,5 +65,14 @@ class AdminController extends Controller
         }
 
         return 'berhasil';
+    }
+
+    public function destroy()
+    {
+        $user = User::find(\request('id'));
+        $user->delete();
+
+        return $this->jsonResponse('success');
+
     }
 }

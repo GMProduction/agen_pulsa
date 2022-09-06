@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\CustomController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class UserController extends CustomController
 {
 
     /**
@@ -31,7 +33,7 @@ class UserController extends Controller
         //
         $field = \request()->validate(
             [
-                'nama'   => 'required',
+                'nama'     => 'required',
                 'username' => 'required',
             ]
         );
@@ -43,9 +45,11 @@ class UserController extends Controller
             ]
         );
 
-        $fieldPass = \request()->validate([
-            'password' => 'required|confirmed',
-        ]);
+        $fieldPass = \request()->validate(
+            [
+                'password' => 'required|confirmed',
+            ]
+        );
         if (\request('id')) {
             $cekUsername = User::where([['username', '=', \request('username')], ['id', '!=', \request('id')]])->first();
             if ($cekUsername) {
@@ -129,14 +133,23 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
+     * @return string
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
+        DB::beginTransaction();
+        try {
+            $user = User::find(\request('id'));
+            $user->delete();
+            DB::commit();
+
+            return $this->jsonResponse('success');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return $this->jsonResponse($e->getMessage(),500);
+        }
     }
 }
